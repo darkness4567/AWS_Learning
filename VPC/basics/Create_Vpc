@@ -6,7 +6,7 @@ VPC_ID=$(aws ec2 create-vpc --cidr-block "172.16.0.0/16" \
 --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=my-vpc-1}]' \
 --region us-east-1  \
 --query Vpc.VpcId \
---output json)
+--output text)
 
 echo $VPC_ID
 
