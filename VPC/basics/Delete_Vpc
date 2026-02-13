@@ -15,6 +15,8 @@ aws ec2 detach-internet-gateway --internet-gateway-id $IGW_ID --vpc-id $VPC_ID
 
 # Delete Internet gateway 
 
+aws ec2 delete-internet-gateway --internet-gateway-id $IGW_ID --vpc-id $VPC_ID
+
 # Delete vpc 
 
 aws ec2 delete-vpc --vpc-id $VPC_ID
