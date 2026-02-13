@@ -25,10 +25,23 @@ aws ec2 attach-internet-gateway \
 --vpc-id $VPC_ID
 # create a new subnet 
 
+Subnet_Id=$(aws ec2 create-subnet --vpc-id $VPC_ID \
+--cidr-block 172.16.1.0/24 \
+--query Subnet.SubnetId)
 
+echo "Subnet_Id : $Subnet_Id"
 # explicitly associate a subnet 
 
+RT_ID=$(aws ec2 describe-route-tables \
+--filters "Name=vpc-id,Values=$VPC_ID" "Name=association.main,Values=true" \
+--query "RouteTables[].RouteTableId[]" \
+--output text
+)
 
+echo "RT_ID : $RT_ID"
 
+aws ec2 associate-route-table \
+--route-table-id $RT_ID \
+--subnet-id $Subnet_Id
 # add a route for our RT to IGW
 
