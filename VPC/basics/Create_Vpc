@@ -6,7 +6,7 @@
 --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=my-vpc-1}]' \
 --region us-east-1  \
 --query Vpc.VpcId \
---output text)
+--output json)
 
 echo $VPC_ID
 
