@@ -3,8 +3,8 @@
 
 # CHECK if the argument is not provided 
 
-if [-z "$1"]; then 
-    echo "Argument is not provided"
+if [ -z "$1"]; then 
+    echo "Argument is not provided."
 else 
     export VPC_ID="$1"
 fi 
