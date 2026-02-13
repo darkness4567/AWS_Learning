@@ -1,4 +1,4 @@
-!#/usr/env/bin bash 
+!#/usr/bin/env bash 
 
 
 # CHECK if the argument is not provided 
