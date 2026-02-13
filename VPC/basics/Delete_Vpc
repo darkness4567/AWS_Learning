@@ -9,6 +9,11 @@ else
     export VPC_ID="$1"
 fi 
 
+# Detach Internet gateway 
+
+aws ec2 detach-internet-gateway --internet-gateway-id $IGW_ID --vpc-id $VPC_ID
+
+# Delete Internet gateway 
 
 # Delete vpc 
 
