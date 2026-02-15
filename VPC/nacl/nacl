@@ -1,4 +1,12 @@
 #!/var/bin/env bash 
 
+
+# get vpc id 
+
+VPC_ID=$(aws ec2 describe-vpcs \
+  --filters "Name=tag:Name,Values=nacl-vpc" \
+  --query "Vpcs[0].VpcId" \
+  --output text)
+
 # create a nacl 
 #aws ec2 create-network-acl --vpc-id 
